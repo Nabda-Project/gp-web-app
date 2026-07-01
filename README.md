@@ -65,7 +65,4 @@ Then rebuild the `.ico` and reference the new sizes in [layout.tsx](src/app/layo
 
 ## TODO / Missing Info From Source Docs
 
-- Backend HTTPS and CORS must be verified before production deployment.
-- The web refresh-token strategy still follows the documented mobile re-login behavior; a real refresh-token endpoint would be safer.
-- Full WebSocket system-event payload schemas are not documented, so system events are parsed generically.
-- Real SpO2 semantics need backend/firmware confirmation before clinical use.
+*NONE*
