@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #407bff;
+  --color-secondary: #00b4d8;
+  --color-dark-blue: #03045e;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f7fa;
+  --color-white: #ffffff;
+  --color-grey: #94a3b8;
+  --color-light-grey: #e2e8f0;
+  --color-accent-teal: #00bfa5;
+  --color-error: #e53935;
+  --gradient-primary: linear-gradient(135deg, #407bff, #00b4d8);
+  --shadow-card: 0 8px 20px rgba(64, 123, 255, 0.08);
+  --font-sans: "Roboto", "Cairo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-arabic: "Cairo", "Roboto", system-ui, sans-serif;
+}
+
+html.dark {
+  color-scheme: dark;
+  --color-dark-blue: #e6eeff;
+  --color-background: hsl(222, 47%, 11%);
+  --color-surface: hsl(217, 33%, 17%);
+  --color-surface-muted: hsl(215, 28%, 23%);
+  --color-grey: #aab7cd;
+  --color-light-grey: rgba(148, 163, 184, 0.26);
+  --shadow-card: 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--color-background);
+  color: var(--color-dark-blue);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+html[lang="ar"] {
+  direction: rtl;
+  font-family: var(--font-arabic);
+}
+
+.material-symbols-rounded {
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+.gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.decorated-bg {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.decorated-bg::before,
+.decorated-bg::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.decorated-bg::before {
+  width: 200px;
+  height: 200px;
+  right: -60px;
+  top: -80px;
+  background: rgba(64, 123, 255, 0.04);
+}
+
+.decorated-bg::after {
+  width: 250px;
+  height: 250px;
+  left: -80px;
+  bottom: -100px;
+  background: rgba(64, 123, 255, 0.04);
+}
+
+html.dark .decorated-bg::before {
+  background: rgba(64, 123, 255, 0.1);
+}
+
+html.dark .decorated-bg::after {
+  background: rgba(0, 180, 216, 0.08);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #e5e7eb 0%, #f9fafb 50%, #e5e7eb 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+html.dark .shimmer {
+  background: linear-gradient(90deg, hsl(215, 28%, 23%) 0%, hsl(215, 24%, 30%) 50%, hsl(215, 28%, 23%) 100%);
+  background-size: 200% 100%;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(64, 123, 255, 0.45);
+  outline-offset: 2px;
+}
