@@ -46,3 +46,7 @@ node_modules/
 .next/
 .claude/
 AGENTS.md
+
+# Secrets and reports
+gitleaks-report.json
+replacements.txt
