@@ -20,11 +20,11 @@ Default API configuration:
 
 ```env
 NEXT_PUBLIC_API_URL=/api
-BACKEND_API_URL=http://smart-medical-api-env.eba-jxdmccmi.us-east-1.elasticbeanstalk.com/api
-NEXT_PUBLIC_WS_HOST=smart-medical-api-env.eba-jxdmccmi.us-east-1.elasticbeanstalk.com
+BACKEND_API_URL=http://localhost:8080/api
+NEXT_PUBLIC_WS_HOST=localhost:8080
 ```
 
-`NEXT_PUBLIC_API_URL=/api` makes the browser call the local Next.js app first. Next.js then proxies those requests to `BACKEND_API_URL`, which avoids browser CORS failures from the Elastic Beanstalk backend during local development.
+`NEXT_PUBLIC_API_URL=/api` makes the browser call the local Next.js app first. Next.js then proxies those requests to `BACKEND_API_URL`, which avoids browser CORS failures during local development.
 
 For Google Sign-In, create a Firebase Web app in the same Firebase project used by the mobile app and fill these in `.env.local`:
 
